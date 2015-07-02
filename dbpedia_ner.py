@@ -33,7 +33,7 @@ def call_dbpedia_rest_service(this_text,url,confidence):
     my_data['confidence'] = confidence
     my_data['support'] = '0' #how prominent is this entity, i.e. number of inlinks in Wikipedia;
     
-    req = Request(DBPEDIA_REST, data = urlencode(my_data))
+    req = Request(url, data = urlencode(my_data))
     req.add_header('Accept',' text/xml')
     handler = urlopen(req)
     dbpedia_xml_results = handler.read()
